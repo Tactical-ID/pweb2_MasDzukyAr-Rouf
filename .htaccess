@@ -1,0 +1,190 @@
+RewriteEngine On
+RewriteBase //
+
+# login
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^admin/?$ views/admin/anggota/index.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^anggota(\d+)/?$ views/user/user2/index.php?id_anggota=$1 [L]
+
+
+# header admin
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^anggota/?$ views/admin/anggota/index.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^petugas/?$ views/admin/petugas/index.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^validasi/?$ views/admin/anggota/validasi_transaksi.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^penyetujuan/?$ views/admin/anggota/penyetujuan_pinjaman.php [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^logout/?$ index.php [L]
+# header admin /
+
+# header user
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^user(\d+)/?$ views/user/user2/index.php?id_anggota=$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^transaksi(\d+)/?$ views/user/user2/transaksi_anggota.php?id_anggota=$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^pengajuan(\d+)/?$ views/user/user2/pengajuan_pinjaman.php?id_anggota=$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^penyetujuan/?$ views/user/user2/penyetujuan_pinjaman.php [L,QSA]
+
+# header user /
+
+
+
+# anggota /////////////////////////////////////////////////////////////////////////
+# tambah
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^tambah_anggota/?$ views/admin/anggota/tambah.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^proses_tambah_anggota/?$ views/admin/anggota/proses_tambah.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^tambah_anggota_success/?$  views/admin/anggota/index.php?success=tambah [L,QSA]
+
+# edit
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^edit_anggota(\d+)/?$ views/admin/anggota/edit.php?id_anggota=$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^proses_edit_anggota/?$ views/admin/anggota/proses_edit.php [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^edit_anggota_success/?$ views/admin/anggota/index.php?success=update [L,QSA]
+
+# hapus
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^hapus_anggota(\d+)/?$  views/admin/anggota/proses_hapus.php?id_anggota=$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^hapus_anggota_succes/?$  views/admin/anggota/index.php?success=hapus [L,QSA]
+
+# cek
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^cek(\d+)/?$  views/admin/anggota/tampil_anggota.php?id_anggota=$1 [L,QSA]
+# ////////////////////////////////////////
+
+
+
+
+# Petugas /////////////////////////////////////////////////////////////////////////
+# tambah
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^tambah_petugas/?$ views/admin/petugas/tambah.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^proses_tambah_petugas/?$ views/admin/petugas/proses_tambah.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^tambah_petugas_success/?$  views/admin/petugas/index.php?success=tambah [L,QSA]
+
+# edit
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^edit_petugas(\d+)/?$ views/admin/petugas/edit.php?id_petugas=$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^proses_edit_petugas/?$ views/admin/petugas/proses_edit.php [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^edit_petugas_success/?$ views/admin/petugas/index.php?success=update [L,QSA]
+
+# hapus
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^hapus_petugas(\d+)/?$  views/admin/petugas/proses_hapus.php?id_petugas=$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^hapus_petugas_succes/?$  views/admin/petugas/index.php?success=hapus [L,QSA]
+
+# ////////////////////////////////////////
+
+# admin
+# /////////////////////////////////
+# transaksi
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^delete_transaksi(\d+)/?$  views/admin/anggota/delete_transaksi.php?id_transaksi=$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^validasi_transaksi_success/?$  views/admin/anggota/validasi_transaksi.php?success=hapus [L,QSA]
+
+# pengajuan
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^delete_pinjaman(\d+)/?$  views/admin/anggota/delete_pinjaman.php?id_pinjaman=$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^penyetujuan_pinjaman_success/?$  views/admin/anggota/penyetujuan_pinjaman.php?success=hapus [L,QSA]
+
+# /////////////////////////////////////
+
+
+# user
+# ///////////////////////
+# pengajuan
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^proses_pengajuan/?$  views/user/user2/process_pengajuan.php [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^success_pengajuan(\d+)/?$  views/user/user2/index.php?id_anggota=$1&success=pengajuan_true [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^gagal_pengajuan(\d+)/?$  views/user/user2/index.php?id_anggota=$1&success=pengajuan_false [L,QSA]
+# transaksi
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^proses_transaksi/?$  views/user/user2/proses_transaksi.php [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^success_transaksi(\d+)/?$  views/user/user2/index.php?id_anggota=$1&success=transaksi_true [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^gagal_transaksi(\d+)/?$  views/user/user2/index.php?id_anggota=$1&success=transaksi_false [L,QSA]
